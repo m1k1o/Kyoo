@@ -43,6 +43,7 @@ const config: ExpoConfig = {
 	version: "1.0.0",
 	orientation: "default",
 	icon: "./assets/icon.png",
+	newArchEnabled: true,
 	userInterfaceStyle: "automatic",
 	splash,
 	assetBundlePatterns: ["**/*"],
@@ -72,6 +73,9 @@ const config: ExpoConfig = {
 	plugins: [
 		"expo-build-properties",
 		"expo-localization",
+		"expo-font",
+		"expo-router",
+		"expo-secure-store",
 		[
 			"react-native-video",
 			{

@@ -13,7 +13,7 @@
 		"@shopify/flash-list": "^1.7.1",
 		"@types/langmap": "^0.0.3",
 		"react-native-uuid": "^2.0.2",
-		"typescript": "^5.5.4"
+		"typescript": "^5.6.3"
 	},
 	"peerDependencies": {
 		"@gorhom/portal": "*",
@@ -35,9 +35,9 @@
 		"yoshiki": "*"
 	},
 	"optionalDependencies": {
-		"@kesha-antonov/react-native-background-downloader": "^3.2.0",
+		"@kesha-antonov/react-native-background-downloader": "^3.2.1",
 		"expo-file-system": "^17.0.1",
-		"expo-router": "^3.5.21"
+		"expo-router": "^3.5.23"
 	},
 	"peerDependenciesMeta": {
 		"@kesha-antonov/react-native-background-downloader": {
