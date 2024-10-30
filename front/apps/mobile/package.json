@@ -18,7 +18,6 @@
 		"@formatjs/intl-displaynames": "^6.8.1",
 		"@formatjs/intl-locale": "^4.2.1",
 		"@gorhom/portal": "^1.0.14",
-		"@kesha-antonov/react-native-background-downloader": "^3.2.1",
 		"@kyoo/ui": "workspace:^",
 		"@material-symbols/svg-400": "^0.25.2",
 		"@react-native-community/netinfo": "11.4.1",

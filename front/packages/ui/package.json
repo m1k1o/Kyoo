@@ -14,7 +14,6 @@
 	},
 	"peerDependencies": {
 		"@gorhom/portal": "*",
-		"@kesha-antonov/react-native-background-downloader": "*",
 		"@material-symbols/svg-400": "*",
 		"@shopify/flash-list": "*",
 		"@tanstack/react-query": "*",
