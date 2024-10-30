@@ -1,19 +1,17 @@
 FROM node:18-alpine AS builder
 WORKDIR /app
-COPY .yarn ./.yarn
-COPY .yarnrc.yml ./
-COPY package.json yarn.lock ./
+COPY package.json bun.lockb ./
 COPY apps/web/package.json apps/web/package.json
 COPY apps/mobile/package.json apps/mobile/package.json
 COPY packages/ui/package.json packages/ui/package.json
 COPY packages/primitives/package.json packages/primitives/package.json
 COPY packages/models/package.json packages/models/package.json
-RUN yarn --immutable
+RUN bun --frozen-lockfile
 
 COPY . .
 ENV NEXT_TELEMETRY_DISABLED=1
 ENV NODE_ENV=production
-RUN yarn build:web
+RUN bun run build:web
 
 
 FROM node:18-alpine

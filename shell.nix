@@ -25,7 +25,6 @@ in
   pkgs.mkShell {
     packages = with pkgs; [
       nodejs-18_x
-      nodePackages.yarn
       nodePackages.eas-cli
       nodePackages.expo-cli
       dotnet
@@ -44,6 +43,7 @@ in
       sqlc
       go-swag
       robotframework-tidy
+      bun
     ];
 
     DOTNET_ROOT = "${dotnet}";

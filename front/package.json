@@ -2,14 +2,14 @@
 	"name": "kyoo",
 	"private": true,
 	"scripts": {
-		"dev": "yarn workspaces foreach -pi run dev",
-		"web": "yarn workspace web dev",
-		"mobile": "yarn workspace mobile dev",
-		"build:web": "yarn workspace web build",
-		"build:mobile": "yarn workspace mobile build",
-		"build:mobile:apk": "yarn workspace mobile build:apk",
-		"build:mobile:dev": "yarn workspace mobile build:dev",
-		"update": "yarn workspace mobile update",
+		"dev": "bun --filter '*' run dev",
+		"web": "bun --cwd apps/web dev",
+		"mobile": "bun --cwd apps/mobile dev",
+		"build:web": "bun --cwd apps/web build",
+		"build:mobile": "bun --cwd apps/mobile build",
+		"build:mobile:apk": "bun --cwd apps/mobile build:apk",
+		"build:mobile:dev": "bun --cwd apps/mobile build:dev",
+		"update": "bun --cwd apps/mobile update",
 		"lint": "biome lint .",
 		"lint:fix": "biome lint . --apply",
 		"format": "biome format .",
@@ -22,6 +22,5 @@
 	"devDependencies": {
 		"@biomejs/biome": "1.9.4",
 		"typescript": "5.6.3"
-	},
-	"packageManager": "yarn@3.2.4"
+	}
 }
