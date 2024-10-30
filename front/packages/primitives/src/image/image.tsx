@@ -18,12 +18,10 @@
  * along with Kyoo. If not, see <https://www.gnu.org/licenses/>.
  */
 
-import { getCurrentToken } from "@kyoo/models";
-import { type ReactElement, useState } from "react";
-import { type FlexStyle, type ImageStyle, View, type ViewStyle } from "react-native";
-import { Blurhash } from "react-native-blurhash";
-import FastImage from "react-native-fast-image";
-import { percent, useYoshiki } from "yoshiki/native";
+import { type ReactElement } from "react";
+import { type ImageStyle, View, type ViewStyle } from "react-native";
+import { Image as ExpoImage } from "expo-image";
+import { useYoshiki } from "yoshiki/native";
 import { Skeleton } from "../skeleton";
 import type { ImageLayout, Props } from "./base-image";
 
@@ -33,64 +31,24 @@ export const Image = ({
 	alt,
 	forcedLoading = false,
 	layout,
-	Err,
 	...props
 }: Props & { style?: ImageStyle } & { layout: ImageLayout }) => {
 	const { css } = useYoshiki();
-	const [state, setState] = useState<"loading" | "errored" | "finished">(
-		src ? "loading" : "errored",
-	);
-
-	// This could be done with a key but this makes the API easier to use.
-	// This unsures that the state is resetted when the source change (useful for recycler lists.)
-	const [oldSource, setOldSource] = useState(src);
-	if (oldSource !== src) {
-		setState("loading");
-		setOldSource(src);
-	}
 
 	const border = { borderRadius: 6, overflow: "hidden" } satisfies ViewStyle;
 
 	if (forcedLoading) return <Skeleton variant="custom" {...css([layout, border], props)} />;
-	if (!src || state === "errored") {
-		return Err !== undefined ? (
-			Err
-		) : (
-			<View {...css([{ bg: (theme) => theme.overlay0 }, layout, border], props)} />
-		);
-	}
-
-	quality ??= "high";
-	const token = getCurrentToken();
+	if (!src) return <View {...css([{ bg: (theme) => theme.overlay0 }, layout, border], props)} />;
 	return (
-		<View {...css([layout, border], props)}>
-			{state !== "finished" && (
-				<Blurhash
-					blurhash={src.blurhash}
-					resizeMode="cover"
-					{...css({ width: percent(100), height: percent(100) })}
-				/>
-			)}
-			<FastImage
-				source={{
-					uri: src[quality],
-					headers: token
-						? {
-								Authorization: token,
-							}
-						: {},
-					priority: FastImage.priority[quality === "medium" ? "normal" : quality],
-				}}
-				accessibilityLabel={alt}
-				onLoad={() => setState("finished")}
-				onError={() => setState("errored")}
-				resizeMode={FastImage.resizeMode.cover}
-				{...(css({
-					width: percent(100),
-					height: percent(100),
-				}) as { style: FlexStyle })}
-			/>
-		</View>
+		<ExpoImage
+			alt={alt}
+			contentFit="cover"
+			placeholderContentFit="cover"
+			placeholder={{ blurhash: src.blurhash }}
+			source={src[quality ?? "high"]}
+			recyclingKey={src.high}
+			{...css([layout, border])}
+		/>
 	);
 };
 

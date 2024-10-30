@@ -19,7 +19,6 @@
  */
 
 import type { KyooImage } from "@kyoo/models";
-import type { ReactElement } from "react";
 import type { ImageStyle } from "react-native";
 import type { YoshikiStyle } from "yoshiki/src/type";
 
@@ -33,7 +32,6 @@ export type Props = {
 	src?: KyooImage | null;
 	quality: "low" | "medium" | "high";
 	alt?: string;
-	Err?: ReactElement | null;
 	forcedLoading?: boolean;
 };
 

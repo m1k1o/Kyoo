@@ -18,18 +18,14 @@
  * along with Kyoo. If not, see <https://www.gnu.org/licenses/>.
  */
 
-import { Image, View } from "react-native";
+import { Image as ExpoImage } from "expo-image";
 
 export const Sprite = ({
 	src,
 	alt,
-	width,
-	height,
+	style,
 	x,
 	y,
-	rows,
-	columns,
-	style,
 	...props
 }: {
 	src: string;
@@ -43,15 +39,17 @@ export const Sprite = ({
 	style?: object;
 }) => {
 	return (
-		<View style={{ width, height, overflow: "hidden", flexGrow: 0, flexShrink: 0 }}>
-			<Image
-				source={{ uri: src }}
-				alt={alt}
-				width={width * columns}
-				height={height * rows}
-				style={{ transform: [{ translateX: -x }, { translateY: -y }] }}
-				{...props}
-			/>
-		</View>
+		<ExpoImage
+			source={src}
+			alt={alt}
+			contentFit="none"
+			contentPosition={{left: -x, top: -y}}
+			style={{
+				flexGrow: 0,
+				flexShrink: 0,
+				...style
+			}}
+			{...props}
+		/>
 	);
 };

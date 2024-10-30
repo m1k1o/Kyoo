@@ -17,8 +17,6 @@
 		"moti": "*",
 		"react": "*",
 		"react-native": "*",
-		"react-native-blurhash": "*",
-		"react-native-fast-image": "*",
 		"react-native-reanimated": "*",
 		"react-native-safe-area-context": "*",
 		"react-native-svg": "*",
