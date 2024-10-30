@@ -2,15 +2,12 @@
 	"name": "@kyoo/ui",
 	"main": "src/index.ts",
 	"types": "src/index.ts",
-	"packageManager": "yarn@3.2.4",
 	"dependencies": {
 		"@kyoo/models": "workspace:^",
 		"@kyoo/primitives": "workspace:^",
 		"langmap": "^0.0.16"
 	},
 	"devDependencies": {
-		"@gorhom/portal": "^1.0.14",
-		"@shopify/flash-list": "^1.7.1",
 		"@types/langmap": "^0.0.3",
 		"react-native-uuid": "^2.0.2",
 		"typescript": "^5.6.3"
@@ -19,10 +16,10 @@
 		"@gorhom/portal": "*",
 		"@kesha-antonov/react-native-background-downloader": "*",
 		"@material-symbols/svg-400": "*",
-		"@shopify/flash-list": "^1.3.1",
+		"@shopify/flash-list": "*",
 		"@tanstack/react-query": "*",
 		"expo-file-system": "*",
-		"expo-image-picker": "~14.7.1",
+		"expo-image-picker": "*",
 		"expo-linear-gradient": "*",
 		"expo-router": "*",
 		"i18next": "*",
@@ -33,18 +30,5 @@
 		"react-native-reanimated": "*",
 		"react-native-svg": "*",
 		"yoshiki": "*"
-	},
-	"optionalDependencies": {
-		"@kesha-antonov/react-native-background-downloader": "^3.2.1",
-		"expo-file-system": "^17.0.1",
-		"expo-router": "^3.5.23"
-	},
-	"peerDependenciesMeta": {
-		"@kesha-antonov/react-native-background-downloader": {
-			"optional": true
-		},
-		"expo-router": {
-			"optional": true
-		}
 	}
 }
