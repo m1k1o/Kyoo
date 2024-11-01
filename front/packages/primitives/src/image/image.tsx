@@ -18,7 +18,7 @@
  * along with Kyoo. If not, see <https://www.gnu.org/licenses/>.
  */
 
-import { type ReactElement } from "react";
+import type { ReactElement } from "react";
 import { type ImageStyle, View, type ViewStyle } from "react-native";
 import { Image as ExpoImage } from "expo-image";
 import { useYoshiki } from "yoshiki/native";
@@ -47,7 +47,7 @@ export const Image = ({
 			placeholder={{ blurhash: src.blurhash }}
 			source={src[quality ?? "high"]}
 			recyclingKey={src.high}
-			{...css([layout, border])}
+			{...(css([layout, border]) as any)}
 		/>
 	);
 };

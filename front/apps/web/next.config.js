@@ -28,7 +28,6 @@ const suboctopus = path.resolve(path.dirname(require.resolve("jassub")), "../dis
  * @type {import("next").NextConfig}
  */
 const nextConfig = {
-	swcMinify: true,
 	// can't be true since we would run hls cleanup twice and run on race conditions
 	reactStrictMode: false,
 	output: "standalone",
@@ -118,9 +117,7 @@ const nextConfig = {
 		"expo-linear-gradient",
 		"expo-image-picker",
 	],
-	experimental: {
-		outputFileTracingRoot: path.join(__dirname, "../../"),
-	},
+	outputFileTracingRoot: path.join(__dirname, "../../"),
 };
 
 if (process.env.NODE_ENV !== "production") {
