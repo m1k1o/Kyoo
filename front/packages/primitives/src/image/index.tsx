@@ -29,7 +29,6 @@ import type { ImageLayout, Props, YoshikiEnhanced } from "./base-image";
 import { Image } from "./image";
 
 export { Sprite } from "./sprite";
-export { BlurhashContainer } from "./blurhash";
 export { type Props as ImageProps, Image };
 
 export const Poster = ({
